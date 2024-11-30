@@ -1,0 +1,24 @@
+body {
+  min-height: 100%;
+  background: #7b8187 !important;
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+.App {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+.App.canvas-page {
+  display: flex;
+  justify-content: center;
+}
