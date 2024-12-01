@@ -67,7 +67,7 @@ export default function Testimonials() {
   }
 
   return (
-    <section className="relative py-24 sm:py-32 overflow-hidden">
+    <section id="testimonials" className="relative py-24 sm:py-32 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-indigo-50 to-pink-50"></div>
       <div className="absolute inset-0 bg-grid-indigo-200/25 bg-grid-repeat"></div>
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">

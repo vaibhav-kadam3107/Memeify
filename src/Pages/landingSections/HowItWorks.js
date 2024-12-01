@@ -104,11 +104,11 @@ function ProcessVisualization({ activeStep }) {
   return (
     <div className="w-full h-full bg-gray-100 flex items-center justify-center p-8">
       <div className="relative w-full max-w-3xl">
-        <img
+        {/* <img
           src="/placeholder.svg?height=400&width=600"
           alt="Sample image"
           className="w-full h-auto rounded-lg shadow-lg"
-        />
+        /> */}
         {activeStep > 0 && (
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}

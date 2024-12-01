@@ -1,25 +1,38 @@
-'use client'
+'use client';
 
-import { useState } from 'react'
-import { Menu, X } from 'lucide-react'
+import { useState } from 'react';
+import { Menu, X } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import Logo from '../../assets/logo.png';
 
 const navigation = [
   { name: 'Home', href: '#' },
   { name: 'Features', href: '#features' },
-  { name: 'Pricing', href: '#pricing' },
   { name: 'Testimonials', href: '#testimonials' },
-]
+  { name: 'Pricing', href: '#pricing' },
+];
 
 export default function Navbar() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const handleLogin = () => {
+    navigate('/sign-in'); // Redirects to the Sign-In page
+  };
+
+  const handleSignUp = () => {
+    navigate('/sign-up'); // Redirects to the Sign-Up page
+  };
 
   return (
     <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-sm border-b border-gray-200">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
+      <nav
+        className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
+        aria-label="Global"
+      >
         <div className="flex lg:flex-1">
           <a href="#" className="-m-1.5 p-1.5">
-            <span className="sr-only">Your Company</span>
-            <img className="h-8 w-auto" src="/placeholder.svg?height=32&width=32" alt="Your Company Logo" />
+            <img className="h-8 w-auto" src={Logo} alt="Your Company Logo" />
           </a>
         </div>
         <div className="flex lg:hidden">
@@ -33,33 +46,41 @@ export default function Navbar() {
         </div>
         <div className="hidden lg:flex lg:gap-x-12">
           {navigation.map((item) => (
-            <a key={item.name} href={item.href} className="text-sm font-semibold leading-6 text-gray-900">
+            <a
+              key={item.name}
+              href={item.href}
+              className="text-sm font-semibold leading-6 text-gray-900"
+            >
               {item.name}
             </a>
           ))}
         </div>
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <a 
-            href="#" 
+        <div className="hidden lg:flex lg:flex-1 lg:justify-end gap-4">
+          <button
+            onClick={handleLogin}
             className="text-sm font-semibold leading-6 px-4 py-2 rounded-md bg-indigo-600 text-white hover:bg-indigo-500"
           >
             Log in <span aria-hidden="true">&rarr;</span>
-          </a>
+          </button>
+          <button
+            onClick={handleSignUp}
+            className="text-sm font-semibold leading-6 text-gray-800 hover:text-indigo-600 transition-all underline underline-offset-2"
+          >
+            New user? <span className="text-indigo-600">Sign up</span>
+          </button>
         </div>
       </nav>
-      {/* Mobile menu, show/hide based on menu open state. */}
-      <div className={`lg:hidden ${mobileMenuOpen ? '' : 'hidden'}`} role="dialog" aria-modal="true">
-        {/* Background backdrop, show/hide based on slide-over state. */}
-        <div className="fixed inset-0 z-50"></div>
+
+      {/* Mobile menu */}
+      <div
+        className={`lg:hidden ${mobileMenuOpen ? '' : 'hidden'}`}
+        role="dialog"
+        aria-modal="true"
+      >
         <div className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
             <a href="#" className="-m-1.5 p-1.5">
-              <span className="sr-only">Your Company</span>
-              <img
-                className="h-8 w-auto"
-                src="/placeholder.svg?height=32&width=32"
-                alt="Your Company Logo"
-              />
+              <img className="h-8 w-auto" src={Logo} alt="Your Company Logo" />
             </a>
             <button
               className="-m-2.5 rounded-md p-2.5 text-gray-700"
@@ -83,18 +104,23 @@ export default function Navbar() {
                 ))}
               </div>
               <div className="py-6">
-                <a
-                  href="#"
+                <button
+                  onClick={handleLogin}
                   className="block w-full text-center rounded-lg px-3 py-2.5 text-base font-semibold leading-7 bg-indigo-600 text-white hover:bg-indigo-500"
                 >
                   Log in
-                </a>
+                </button>
+                <button
+                  onClick={handleSignUp}
+                  className="block w-full text-center rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-800 hover:text-indigo-600 transition-all underline underline-offset-2 mt-4"
+                >
+                  New user? <span className="text-indigo-600">Sign up</span>
+                </button>
               </div>
             </div>
           </div>
         </div>
       </div>
     </header>
-  )
+  );
 }
-

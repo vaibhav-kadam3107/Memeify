@@ -4,8 +4,10 @@
   "private": true,
   "dependencies": {
     "@cesdk/cesdk-js": "1.7.0-alpha.3",
-    "@cesdk/engine": "1.7.0-alpha.3",
+    "@cesdk/engine": "^1.7.0-alpha.3",
+    "@clerk/clerk-js": "^5.35.1",
     "@clerk/clerk-react": "^5.17.1",
+    "@clerk/nextjs": "^6.5.1",
     "@headlessui/react": "^2.2.0",
     "@heroicons/react": "^2.2.0",
     "airtable": "^0.11.4",
