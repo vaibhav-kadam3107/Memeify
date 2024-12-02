@@ -14,6 +14,8 @@ import {
 } from '@clerk/clerk-react';
 import CanvaClone from './components/CanvaClone/CanvaClone';
 import LandingPage from './Pages/LandingPage';
+import SignInPage from './Pages/SignIn';
+import SignUpPage from './Pages/SignUp';
 import './App.css';
 
 // Wrapper for Protected Routes
@@ -37,6 +39,18 @@ function AppContent() {
       <Routes>
         {/* Landing Page */}
         <Route path="/" element={<LandingPage />} />
+
+        {/* Sign In Page */}
+        {/* <Route 
+          path="/sign-in" 
+          element={<SignInPage redirectTo="/canvas" />} 
+        />
+
+        
+        <Route 
+          path="/sign-up" 
+          element={<SignUpPage redirectTo="/canvas" />} 
+        /> */}
 
         {/* Sign In Page */}
         <Route path="/sign-in" element={<SignIn redirectUrl="/canvas" />} />
